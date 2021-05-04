@@ -1,0 +1,13 @@
+{
+	"name": "contatos",
+	"build": {
+		"dockerfile": "Dockerfile",
+		"context": ".."
+	},
+
+	"forwardPorts": [3000],
+	
+	"remoteUser": "vinicius",
+	
+	"postCreateCommand": "gem install bundler && bundle install && yarn install && rails db:create && rails db:migrate"
+}
