@@ -10,6 +10,7 @@ pt-BR:
         secondary_phone: "Telefone Secondário"
         address: "Endereço"
         birth_date: "Data de Nascimento"
+        photo: "Foto"
         notes: "Observações"
     errors:
       messages:

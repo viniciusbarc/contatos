@@ -1,19 +1,29 @@
 <h2 class="my-3"><%= @contact.name %></h2>
 
-<p> <b> Telefones: </b> &nbsp; <%= @contact.primary_phone %> &nbsp; <%= @contact.secondary_phone %> </p>
+<table width="100%">
+<td>
+  <p> <b> Telefones: </b> &nbsp; <%= @contact.primary_phone %> &nbsp; <%= @contact.secondary_phone %> </p>
 
-<p> <b> Emails: </b> &nbsp; <%= @contact.primary_email %> &nbsp; <%= @contact.secondary_email %> </p>
+  <p> <b> Emails: </b> &nbsp; <%= @contact.primary_email %> &nbsp; <%= @contact.secondary_email %> </p>
 
-<p> <b> Data de Nascimento: </b> <%= @contact.birth_date.strftime("%d/%m/%Y") %> </p>
+  <p> <b> Data de Nascimento: </b> <%= @contact.birth_date.strftime("%d/%m/%Y") %> </p>
 
-<p> <b> Endereço: </b> <%= @contact.address %> </p>
+  <p> <b> Endereço: </b> <%= @contact.address %> </p>
 
-<p> <b> Linkedin: </b> <%= @contact.linkedin %> </p>
+  <p> <b> Linkedin: </b> <%= @contact.linkedin %> </p>
 
-<p> <b> Observações: </b> <%= @contact.notes %> </p>
+  <p> <b> Observações: </b> <%= @contact.notes %> </p>
 
-<p> 
-  <%= link_to 'Voltar', contacts_path, class: "btn btn-secondary" %>
-  <%= link_to 'Editar', edit_contact_path(@contact), class: "btn btn-secondary" %>
-  <%= link_to 'Apagar', @contact, method: :delete, data: { confirm: 'Você tem certeza que deseja apagar este contato?' }, class: "btn btn-danger" %>
-</p>
+  <p> 
+    <%= link_to 'Voltar', contacts_path, class: "btn btn-secondary" %>
+    <%= link_to 'Editar', edit_contact_path(@contact), class: "btn btn-secondary" %>
+    <%= link_to 'Apagar', @contact, method: :delete, data: { confirm: 'Você tem certeza que deseja apagar este contato?' }, class: "btn btn-danger" %>
+  </p>  
+</td>
+
+<% if @contact.photo.attached? %>
+  <td width="310">
+    <p> <%= image_tag @contact.photo, width: "300" %>  </p>
+  </td>    
+<% end %>
+
