@@ -1,0 +1,10 @@
+<% if resource.errors.any? %>
+  <div class="alert alert-danger mt-2">
+    <h4>Erros ocorreram ao tentar criar esse usuário:</h4>
+    <ul>
+      <% resource.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

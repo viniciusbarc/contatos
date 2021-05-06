@@ -1,14 +1,14 @@
 class ContactsController < ApplicationController
   def index
-    @contacts = Contact.all.order(name: :asc)
+    @contacts = current_user.contacts.all.order(name: :asc)
   end
 
   def new
-    @contact = Contact.new
+    @contact = current_user.contacts.new
   end
   
   def create
-    @contact = Contact.new(contact_params)
+    @contact = current_user.contacts.new(contact_params)
 
     if @contact.save
       flash.notice = "Contato cadastrado com sucesso."
@@ -19,15 +19,15 @@ class ContactsController < ApplicationController
   end
 
   def edit
-    @contact = Contact.find(params[:id])
+    @contact = current_user.contacts.find(params[:id])
   end
 
   def show
-    @contact = Contact.find(params[:id])
+    @contact = current_user.contacts.find(params[:id])
   end
 
   def update
-    @contact = Contact.find(params[:id])
+    @contact = current_user.contacts.find(params[:id])
     if @contact.update(contact_params)
       flash.notice = "Contato atualizado com sucesso."
       redirect_to contacts_path
@@ -37,7 +37,7 @@ class ContactsController < ApplicationController
   end
 
   def destroy
-    @contact = Contact.find(params[:id])
+    @contact = current_user.contacts.find(params[:id])
     @contact.destroy
     flash.notice = 'Contato apagado com sucesso.'
     redirect_to contacts_path
