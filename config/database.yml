@@ -22,8 +22,8 @@ test:
 
 production:
   adapter: mysql2
-  database: <%= Rails.application.credentials[Rails.env.to_sym][:mysql2][:database] %>
-  host: <%= Rails.application.credentials[Rails.env.to_sym][:mysql2][:host] %>
-  username: <%= Rails.application.credentials[Rails.env.to_sym][:mysql2][:username] %>
-  password: <%= Rails.application.credentials[Rails.env.to_sym][:mysql2][:password] %>
+  database: textoaqui
+  host: textoaqui
+  username: textoaqui
+  password: textoaqui
   encoding: utf8
