@@ -9,7 +9,7 @@
 
             <li class="nav-item dropdown active">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Informações do Servidor
+                Servidor: <%= Socket.ip_address_list.detect{|intf| intf.ipv4_private?}.ip_address %>
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="#">Hostname: <%= Socket.gethostname %></a>
